@@ -1,0 +1,57 @@
+// Place all the styles related to the zine controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$navbar-background-color: black;
+$navbar-link-color: white;
+nav {
+  background-color: $navbar-background-color;
+  a {
+    color: $navbar-link-color;
+  }
+}
+
+a {
+  color: white;
+}
+
+div.container-fluid {
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  div {
+    height: 100vh;
+  }
+  div#banner {
+    overflow: hidden;
+    img {
+      margin-top: -7%;
+    }
+    div#arrow {
+      top: 85%;
+      font-size: 36pt;
+      position: absolute;
+      color: white;
+      z-index: 1;
+      cursor: pointer;
+      height: auto;
+    }
+  }
+  div#article {
+    padding-top: 50px;
+    div {
+      height: auto;
+      canvas {
+        background-color: black;
+        width: 250px;
+        height: 250px;
+        margin: 15px;
+        display: inline-block;
+      }
+    }
+    div#threeglitch {
+      position: absolute;
+      z-index: -1;
+      margin-left: -5%;
+    }
+  }
+}
