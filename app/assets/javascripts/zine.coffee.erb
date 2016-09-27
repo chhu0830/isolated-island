@@ -2,9 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $('#banner-img').fadeIn 'slow'
-  return
 
 $(document).ready ->
   canvas = document.getElementById('canvas1')
@@ -67,6 +64,10 @@ $(document).ready ->
       $('nav').css("background-color", "white")
     return
 
+  return
+
+$(document).ready ->
+  $('#banner').fadeIn 1000
   return
 
 $ ->
