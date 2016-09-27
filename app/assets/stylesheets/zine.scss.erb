@@ -5,6 +5,7 @@ $navbar-background-color: black;
 $navbar-link-color: white;
 nav {
   background-color: $navbar-background-color;
+  display: none;
   a {
     color: $navbar-link-color;
   }
@@ -22,6 +23,7 @@ div.container-fluid {
     height: 100vh;
   }
   div#banner {
+    display: none;
     overflow: hidden;
     img {
       margin-top: -7%;
@@ -40,6 +42,9 @@ div.container-fluid {
     padding-top: 50px;
     div {
       height: auto;
+      a {
+        text-decoration: none;
+      }
       canvas {
         background-color: black;
         width: 250px;
@@ -52,6 +57,7 @@ div.container-fluid {
       position: absolute;
       z-index: -1;
       margin-left: -5%;
+      margin-top: -10%;
     }
   }
 }

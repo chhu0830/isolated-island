@@ -11,7 +11,13 @@
       <%= render 'glitch' %>
     </div>
     <div>
-      <a href="/articles/1"><canvas id="canvas1" class="box"></canvas></a>
+      <a href="/articles/1">
+        <div style="margin:0; padding:0; display:inline-block">
+          <div><canvas id="canvas1" class="box"></canvas></div>
+            <div id="title1" style="position:absolute; height:250px; width:250px; color:white; margin-top:-265px; margin-left:15px; padding-left:5px; font-size:2em; z-index:1000; text-align:left;">
+            </div>
+        </div>
+      </a>
       <a href="#"><canvas id="canvas" class="box"></canvas></a>
       <a href="#"><canvas id="canvas" class="box"></canvas></a>
     </div>
@@ -37,13 +43,21 @@ $(document).ready(function(){
 
 <script>
 $(function(){
-    $('.box').mouseenter(function(){
-      var back_topic = '#' + $(this).attr('class') + '_' + $(this).attr('id');
-      $(back_topic).delay(800).fadeIn("slow");
+    $('#title1').mouseenter(function(){
+      var back_topic = '#' + 'box_' + $(this).attr('id');
+      $('#box_canvas1').show();
       });
-    $('.box').mouseout(function(){
+    $('#title1').mouseenter(function(){
+      window.setTimeout(function() {
+        $('#title1').html("<h1>BLACK咖啡</h1><h3>正yee</h3>");
+        }, 1000);
+      });
+    $('#title1').mouseout(function(){
+      $(this).text("");
+      });
+    $('#title1').mouseout(function(){
       var back_topic = '#' + $(this).attr('class') + '_' + $(this).attr('id');
-      $(back_topic).fadeOut("slow");
+      $('#box_canvas1').hide();
       });
     });
 </script>

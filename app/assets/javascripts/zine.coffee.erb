@@ -2,6 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$(document).ready ->
+  $('nav').fadeIn 2000
+  $('#banner').fadeIn 2000
+  return
 
 $(document).ready ->
   canvas = document.getElementById('canvas1')
@@ -50,9 +54,13 @@ $(document).ready ->
     return
 
   randInt = (a, b) ->
-    ~ ~(Math.random() * (b - a) + a)
+    if $('#title1').is(':hover')
+      ~ ~(Math.random() * (b - a) + a)
+    else
+      0
 
   return
+
 
 $(document).ready ->
   $(window).scroll ->
@@ -66,9 +74,6 @@ $(document).ready ->
 
   return
 
-$(document).ready ->
-  $('#banner').fadeIn 1000
-  return
 
 $ ->
   $('#arrow').click ->
