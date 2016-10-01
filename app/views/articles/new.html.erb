@@ -1,0 +1,7 @@
+<%= form_tag articles_path do %>
+  <%= text_field_tag 'image', '', placeholder: 'image' %>
+  <%= text_field_tag 'title', '', placeholder: 'title' %>
+  <%= text_area_tag 'content', '', placeholder: 'content' %>
+  <%= number_field_tag 'author_id', '', placeholder: 'author_id' %>
+  <%= submit_tag 'send' %>
+<% end %>
