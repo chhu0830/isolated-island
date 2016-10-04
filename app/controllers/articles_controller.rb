@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :find_article, :only => [:show]
   before_action :article_params, :only => [:create]
+  def index
+    @articles = Article.all
+  end
 
   def new
   end
