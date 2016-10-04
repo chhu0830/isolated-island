@@ -19,7 +19,7 @@ RailsAdmin.config do |config|
   
   config.authenticate_with do
     authenticate_or_request_with_http_basic('Isolated Island') do |username, password|
-      username == 'isolated-island' && password == 'isolated-island'
+      username == ENV["ADMIN_USER"] && password == ENV["ADMIN_PASSWD"]
     end
   end
 

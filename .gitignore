@@ -21,7 +21,6 @@
 # secrets
 config/database.yml
 config/secrets.yml
-config/initializers/rails_admin.rb
 
 # assets
 public/assets
