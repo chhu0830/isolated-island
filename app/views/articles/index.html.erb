@@ -34,7 +34,13 @@
       </a>
     </div>
     <div>
-      <canvas id="canvas" class="box"></canvas>
+      <a href="/articles/4">
+        <div style="margin:0; padding:0; display:inline-block">
+          <div><canvas id="canvas4" class="box"></canvas></div>
+            <div id="title4" style="position:absolute; height:250px; width:250px; color:white; margin-top:-265px; margin-left:15px; padding-left:5px; font-size:2em; z-index:1000; text-align:left;">
+            </div>
+        </div>
+      </a>
       <canvas id="canvas" class="box"></canvas>
       <canvas id="canvas" class="box"></canvas>
     </div>
@@ -53,67 +59,25 @@ $(document).ready(function(){
     });
 </script>
 
+<% @articles.each do |a| %>
 <script>
 $(function(){
-    $('#title1').mouseenter(function(){
+    $('<%= "#title#{a.id}" %>').mouseenter(function(){
       var back_topic = '#' + 'box_' + $(this).attr('id');
-      $('#box_canvas1').show();
+      $('<%= "#box_canvas#{a.id}" %>').show();
       });
-    $('#title1').mouseenter(function(){
+    $('<%= "#title#{a.id}" %>').mouseenter(function(){
       window.setTimeout(function() {
-        $('#title1').html("<h1>BLACK咖啡</h1><h3>正yee</h3>");
+        $('<%= "#title#{a.id}" %>').html("<h1><%= a.title %></h1><h3><%= a.author.name %></h3>");
         }, 1000);
       });
-    $('#title1').mouseout(function(){
+    $('<%= "#title#{a.id}" %>').mouseout(function(){
       $(this).text("");
       });
-    $('#title1').mouseout(function(){
+    $('<%= "#title#{a.id}" %>').mouseout(function(){
       var back_topic = '#' + $(this).attr('class') + '_' + $(this).attr('id');
-      $('#box_canvas1').hide();
+      $('<%= "#box_canvas#{a.id}" %>').hide();
       });
     });
 </script>
-
-<script type="text/javascript" charset="utf-8">
-$(function(){
-    $('#title2').mouseenter(function(){
-      var back_topic = '#' + 'box_' + $(this).attr('id');
-      $('#box_canvas2').show();
-      });
-    $('#title2').mouseenter(function(){
-      window.setTimeout(function() {
-        $('#title2').html("<h1>小貓</h1><h3>盧心恩</h3>");
-        }, 1000);
-      });
-    $('#title2').mouseout(function(){
-      $(this).text("");
-      });
-    $('#title2').mouseout(function(){
-      var back_topic = '#' + $(this).attr('class') + '_' + $(this).attr('id');
-      $('#box_canvas2').hide();
-      });
-    });
-  
-</script>
-
-<script type="text/javascript" charset="utf-8">
-$(function(){
-    $('#title3').mouseenter(function(){
-      var back_topic = '#' + 'box_' + $(this).attr('id');
-      $('#box_canvas3').show();
-      });
-    $('#title3').mouseenter(function(){
-      window.setTimeout(function() {
-        $('#title3').html("<h1>天王星的哲思</h1><h3>老戴</h3>");
-        }, 1000);
-      });
-    $('#title3').mouseout(function(){
-      $(this).text("");
-      });
-    $('#title3').mouseout(function(){
-      var back_topic = '#' + $(this).attr('class') + '_' + $(this).attr('id');
-      $('#box_canvas3').hide();
-      });
-    });
-  
-</script>
+<% end %>
