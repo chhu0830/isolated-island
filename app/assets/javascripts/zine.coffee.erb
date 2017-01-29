@@ -8,6 +8,60 @@ $(document).ready ->
   return
 
 $(document).ready ->
+  canvas = document.getElementById('canvas20')
+  context = canvas.getContext('2d')
+  img = new Image
+  w = undefined
+  h = undefined
+  offset = undefined
+  glitchInterval = undefined
+  img.src = '<%= asset_path "article20.jpg" %>'
+
+  img.onload = ->
+    init()
+    window.onresize = init
+    return
+
+  init = ->
+    clearInterval glitchInterval
+    canvas.width = w = 250
+    offset = w * 0
+    canvas.height = h = 250
+    glitchInterval = setInterval((->
+      clear()
+      context.drawImage img, 0, 0, img.width, img.height, 0, 0, w, h
+      setTimeout glitchImg, randInt(250, 1000)
+      return
+    ), 500)
+    return
+
+  clear = ->
+    context.rect 0, 0, w, h
+    context.fillStyle = 'black'
+    context.fill()
+    return
+
+  glitchImg = ->
+    i = 0
+    while i < randInt(10, 20)
+      x = Math.random() * w
+      y = Math.random() * h
+      spliceWidth = w - x
+      spliceHeight = randInt(5, h / 3)
+      context.drawImage canvas, 0, y, spliceWidth, spliceHeight, x, y, spliceWidth, spliceHeight
+      context.drawImage canvas, spliceWidth, y, x, spliceHeight, 0, y, x, spliceHeight
+      i++
+    return
+
+  randInt = (a, b) ->
+    if $('#title3').is(':hover')
+      ~ ~(Math.random() * (b - a) + a)
+    else
+      0
+
+  return
+
+$(document).ready ->
   canvas = document.getElementById('canvas19')
   context = canvas.getContext('2d')
   img = new Image
